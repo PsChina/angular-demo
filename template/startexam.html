@@ -1,6 +1,40 @@
-<div>
-    <style></style>
-    <div>
-        开始考试
+<div style="height:100%">
+    <style>
+        .exam-name{
+            color: #3aa9ce;
+        }
+        .exam-isopen{
+            color: #3aa9ce;
+        }
+        .exam-strat, .exam-end{
+            padding: .1rem;
+            box-sizing: border-box;
+        }
+        .exam-strat span, .exam-end span {
+            background: orange;
+            color: white;
+            font-size: .14rem;
+            padding: .03rem;
+        }
+        .table-view-cell{
+            text-align: center;
+        }
+    </style>
+    <div style="overflow-y:scroll;height:100%">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <tr > <th style="text-align:center">试卷名称</th> <th style="text-align:center">是否开放</th> <th style="text-align:center">开始时间</th> <th style="text-align:center">结束时间</th> <th style="text-align:center">考试操作</th></tr>
+            <tr ng-repeat="item in data.$$state.value.list" class="table-view-cell">
+
+                <td class="exam-name"><input type="text" ng-model="item.name" ng-show="item.show"> {{item.name}}</td>
+                
+                <td class="exam-isopen"><input type="text" ng-model="item.isOpenFormat" ng-show="item.show"> {{item.isOpen | formatOpenState}}</td>
+                
+                <td class="exam-strat"><input type="text" ng-model="item.startTimeFormat" ng-show="item.show"> <span>{{item.startTime | date:'yyyy-MM-dd hh:mm:ss' }}</span></td>
+                
+                <td class="exam-end"><input type="text" ng-model="item.endTimeFormat" ng-show="item.show"> <span>{{item.endTime | date:'yyyy-MM-dd hh:mm:ss' }}</span></td>
+                
+                <td class="exam-control"><button class="btn btn-info btn-sm" ng-click="edit($event,item)">编辑</button><button class="btn btn-info btn-sm" style="margin-left:0.05rem" ng-click="delete(item.id)">删除</button></td>
+            </tr>
+        </table>
     </div>
 </div>

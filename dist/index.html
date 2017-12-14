@@ -30,12 +30,12 @@
         <div class="app-content-left" ng-controller="appLeftController">
             <uib-accordion close-others="true">
                 <div uib-accordion-group ng-repeat=" data in listData " class="panel-default" heading="{{data.title}}" is-open="flage">
-                   <div ng-repeat="val in data.body" class="data-item" ng-bind="val" ></div>
+                   <div ng-repeat="item in data.body" class="data-item" ui-sref="{{item.routername}}" ng-bind="item.title" ></div>
                 </div>
             </uib-accordion>
         </div>
         <div class="app-content-right" ng-controller="appRightController">
-
+            <ui-view></ui-view>
         </div>
     </div>
 </body>
@@ -43,5 +43,5 @@
 <script src="../js/libaray/node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 <script src="../js/libaray/node_modules/angular-animate/angular-animate.js"></script>
 <script src="../js/libaray/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="./bundle-de5ecafb2c.js"></script>
+<script src="./bundle-91ac743242.js"></script>
 </html>

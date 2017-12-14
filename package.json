@@ -6,6 +6,8 @@
     "gulp-rev": "^8.1.0",
     "gulp-rev-collector": "^1.2.3",
     "gulp-watch": "^4.3.11",
+    "gulp-webserver": "^0.9.1",
+    "mockjs": "^1.0.1-beta3",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
