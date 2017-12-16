@@ -4,6 +4,7 @@ angular.module('service',[])
             function fn (obj){
                return $http(obj) // $http 本身是个promise
                 .then(function(result){
+                    
                     return result.data;
                 },function(error){
                     throw new Error(error);

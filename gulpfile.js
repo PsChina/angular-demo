@@ -168,6 +168,32 @@ var qs = require('qs');
 
 
                                 break;
+                                case '/maxpage':
+                                    // 假设我有100调数据
+                                    // 你每页显示多少
+                                    // 100/prepage = 长度
+                                    var numOfPage = postParams.number;
+                                    var dataLength = data.list.length; // 20
+                                    var pageNum = Math.ceil(dataLength/numOfPage);
+                                    res.setHeader('content-type','application/json;charset=utf-8');
+                                    res.write('{"maxPage":"'+ pageNum +'"}');
+                                    res.end()
+
+                                break;
+                                case '/pagedata':
+                                // 1 2 3 4   前端还需要告诉你 每页显示几条数据
+
+                                // 4
+                                var pageIndex = postParams.pageIndex; // 2
+                                var numOfPage = postParams.number; // 4
+
+                                var arr = data.list.slice((pageIndex-1)*numOfPage,pageIndex*numOfPage) // 这里面有20条数据
+
+                                res.setHeader('content-type','application/json;charset=utf-8');
+                                res.write(JSON.stringify(arr));
+                                res.end();
+
+                                break;
                                 default :
                                 res.end('404 url path not found!')
                                 break;
