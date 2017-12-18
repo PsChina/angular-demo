@@ -1,0 +1,15 @@
+app.constant('appConstValue',{
+    discNavArr:[{
+        title:'个性推荐',
+        routeName:'discover.gexing'
+    },{
+        title:'歌单',
+        routeName:'discover.gedan'
+    },{
+        title:'主播电台',
+        routeName:'discover.diantai'
+    },{
+        title:'排行榜',
+        routeName:'discover.paihang'
+    }]
+})

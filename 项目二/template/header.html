@@ -1,0 +1,41 @@
+<div>
+    <style>
+        .app-nav{
+            background: #cd3d3d;
+            height: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .iconfont{
+            font-size: .5rem;
+            padding: .25rem;
+        }
+        .icon-lisimoshicaidandaohang,.icon-sousuo_sousuo{
+            color: white;
+        }
+        .app-nav-center{
+            display: flex
+        }
+        .app-nav-item{
+            flex: 1;
+            color: rgba(255, 255, 255, .5);
+        }
+        .app-nav-active{
+            color: white;
+        }
+    </style>
+    <div class="app-nav">
+        <div class="iconfont icon-lisimoshicaidandaohang">
+
+        </div>
+        <div class="app-nav-center">
+            <div class="app-nav-item iconfont icon-wangyiyunyinlezizhi-copy" ui-sref="discover" ui-sref-active="app-nav-active"></div>
+            <div class="app-nav-item iconfont icon-yinle1" ui-sref="music" ui-sref-active="app-nav-active"></div>
+            <div class="app-nav-item iconfont icon-yonghuzu" ui-sref="friends" ui-sref-active="app-nav-active"></div>
+        </div>
+        <div class="iconfont icon-sousuo_sousuo">
+
+        </div>
+    </div>
+</div>

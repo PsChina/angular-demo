@@ -1,0 +1,21 @@
+<div>
+    <style>
+        .disc-navgation{
+            display: flex;
+            height: .8rem;
+        }
+        .disc-nav-item{
+            flex: 1;
+            text-align: center;
+            height: .8rem;
+            line-height: .8rem;
+            color: #646464
+        }
+    </style>
+    <div>
+        <div class="disc-navgation">
+            <div class="disc-nav-item" ng-repeat=" item in const.discNavArr " ui-sref="{{item.routeName}}" ng-bind="item.title"></div>
+        </div>
+        <ui-view></ui-view>
+    </div>
+</div>
