@@ -1,0 +1,92 @@
+<div >
+    <style>
+        .player-box{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            display: flex;
+            height: 1rem;
+            width: 100%;
+        }
+        .player-left{
+            flex: 6;
+        }
+        .player-right{
+            flex: 4;
+        }
+        .song-icon{
+            margin: .1rem .15rem;
+            width: .8rem;
+            height: .8rem;
+            float: left;
+        }
+        .song-info{
+            height: 1rem;
+        }
+        .song-name{
+            height: .5rem;
+            line-height: .5rem;
+            color: #2b2f2e
+        }
+        .song-singer{
+            height: .5rem;
+            line-height: .4rem;
+            font-size: .22rem;
+            color: #85898a
+        }
+        .player-icon{
+            float: right;
+            height: 1rem;
+            width: 1rem;
+            line-height: 1rem;
+            padding: 0;
+            color: #cb3e37
+        }
+        .icon-bofang{
+            line-height: .9rem;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+        .icon-stop{
+            line-height: 1rem;
+            font-size: .9rem;
+        }
+        .icon-quanjuxiayiqu{
+            font-size: .6rem;
+        }
+        .progress-box{
+            position: fixed;
+            left: 0;
+            bottom: 1rem;
+            height: .02rem;
+            width: 100%;
+            padding: .2rem 0 0 0;
+        }
+        .progress-bar{
+            height: .02rem;
+            width: 0%;
+            background-color: #cb3e37
+        }
+    </style>
+    <div class="progress-box" let-dom="progressBox" 
+    ng-touchstart="manager.fingerTouch($event)"
+    ng-touchmove="manager.fingerMove($event)"
+    ng-touchend="manager.fingerLeave($event)"
+    >
+        <div class="progress-bar" let-dom="progress"></div>
+    </div>
+    <div class="player-box">
+        <div class="player-left">
+            <img class="song-icon" ng-src="{{src}}" alt="">
+            <div class="song-info">
+                <div class="song-name" ng-bind="songName"></div>
+                <div class="song-singer" ng-bind="singerName"></div>
+            </div>
+        </div>
+        <div class="player-right">
+            <audio id="player" src="" style="display:none"></audio>
+            <div class="player-icon iconfont icon-quanjuxiayiqu" ng-touchend="manager.nextSong()"></div>
+            <div ng-class="dynamicClass" class="player-icon iconfont" ng-touchend="manager.playOrStop()"></div>
+        </div>
+    </div>
+</div>

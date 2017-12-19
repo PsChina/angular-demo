@@ -1,0 +1,15 @@
+<div>
+    <style>
+        .gexing-img{
+            width: 100%;
+            margin-top: .01rem;
+        }
+    </style>
+    <div>
+        <ion-slide-box auto-play="true" slide-interval="2000" does-continue="true">
+                <ion-slide ng-repeat="src in arr">
+                    <img class="gexing-img" ng-src="{{src}}" alt="">
+                </ion-slide>
+        </ion-slide-box>
+    </div>
+</div>
