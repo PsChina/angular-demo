@@ -1,9 +1,18 @@
-app.config(['$stateProvider',function($stateProvider){
+app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
+    $urlRouterProvider.otherwise('/discover')
+    $urlRouterProvider.when('/discover','/discover/gexing')
     $stateProvider.state('discover',{
         url:'/discover',
         templateUrl:'../../template/router-tpls/discover.html',
-        controller:['$scope','appConstValue',function($scope,appConstValue){
+        controller:['$scope','appConstValue','$state',function($scope,appConstValue,$state){
+            $state.go('discover.gexing')
             $scope.const = appConstValue;
+            $scope.getModel = function(){
+                return appConstValue.modelArr[appConstValue.currentModelType];
+            }
+            $scope.changeModule = function(){
+                appConstValue.currentModelType = ++appConstValue.currentModelType % appConstValue.modelArr.length;
+            }
         }]
     })
     .state('music',{
@@ -16,7 +25,17 @@ app.config(['$stateProvider',function($stateProvider){
     })
     .state('discover.gexing',{
         url:'/gexing',
-        templateUrl:'../../template/router-tpls/discover/gexing.html'
+        templateUrl:'../../template/router-tpls/discover/gexing.html',
+        controller:['$scope',function($scope){
+
+            $scope.arr = [
+                './img/banner1.jpg',
+                './img/banner2.jpg',
+                './img/banner3.jpg',
+                './img/banner4.jpg'
+            ]
+
+        }]
     })
     .state('discover.gedan',{
         url:'/gedan',

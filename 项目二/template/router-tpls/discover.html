@@ -11,11 +11,23 @@
             line-height: .8rem;
             color: #646464
         }
+        .disc-nav-active{
+            color: #cd3d3d;
+            border-bottom: .02rem solid #cd3d3d;
+            box-sizing: border-box;
+        }
+        .model{
+            color: purple;
+            margin-top:.2rem;
+            line-height: .6rem;
+            font-size: .38rem;
+        }
     </style>
     <div>
         <div class="disc-navgation">
-            <div class="disc-nav-item" ng-repeat=" item in const.discNavArr " ui-sref="{{item.routeName}}" ng-bind="item.title"></div>
+            <div class="disc-nav-item" ng-repeat=" item in const.discNavArr " ui-sref="{{item.routeName}}" ng-bind="item.title" ui-sref-active="disc-nav-active"></div>
         </div>
         <ui-view></ui-view>
+        <div class="model" ng-bind="getModel()" ng-touchend="changeModule()"></div>
     </div>
 </div>
